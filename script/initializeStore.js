@@ -26,13 +26,15 @@ for (const d of data) {
   docs = [...docs, ...docOutput];
 }
 
+const openaiApiKeySecret = process.env['OPENAI_API_KEY']
+
 console.log("Initializing Store...");
 
 const store = await HNSWLib.fromTexts(
   docs,
   docs.map((_, i) => ({ id: i })),
   new OpenAIEmbeddings({
-    openAIApiKey: process.env.OPENAI_API_KEY
+    openAIApiKey: openaiApiKeySecret
   })
 )
 
