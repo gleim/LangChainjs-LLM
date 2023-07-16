@@ -6,7 +6,8 @@ const prompt = promptSync();
 const conversationHistory = [];
 
 while (true) {
-  const question = prompt("Ask a question >");
+  console.log("Please, provide a question or request 8)");
+  const question = prompt("> ");
   const answer = await generateResponse({
     prompt: question,
     history: conversationHistory
